@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: {? {.Release.Name: ''} : ''}
+    app: {{ .Release.Name }}
   name: '{{ .Release.Name }}-deployment'
   namespace: transfer-knowledge
 spec:
-  replicas: {? {.Values.app.replicas: ''} : ''}
+  replicas: {{ .Values.app.replicas}}
   selector:
     matchLabels:
-      app: {? {.Release.Name: ''} : ''}
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {? {.Release.Name: ''} : ''}
+        app: {{ .Release.Name }}
     spec:
       containers:
       - image: '{{ .Values.container.image}}:{{ .Values.container.version}}'
-        name: {? {.Release.Name: ''} : ''}
+        name: {{ .Release.Name }}
         ports:
-        - containerPort: 5001
+          - containerPort: 5001
       # imagePullSecrets:
       # - name: regcred
