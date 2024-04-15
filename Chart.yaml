@@ -1,0 +1,5 @@
+apiVersion: v2
+name: api-transfer-knowledge
+description: Helm Chart for transfer-knowledge 2024
+type: application
+version: 0.1.0
