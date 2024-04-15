@@ -5,4 +5,4 @@ container:
   version: 0.1.0
 
 app:
-  replicas: 1
+  replicas: 2
